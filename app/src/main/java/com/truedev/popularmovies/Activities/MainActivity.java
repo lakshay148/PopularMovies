@@ -1,7 +1,9 @@
-package com.truedev.popularmovies;
+package com.truedev.popularmovies.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.truedev.popularmovies.R;
 
 public class MainActivity extends AppCompatActivity {
 
