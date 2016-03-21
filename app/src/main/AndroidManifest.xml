@@ -12,6 +12,8 @@
 
         </activity>
 
+        <activity android:name=".Activities.General.BaseActivity" />
+
         <activity android:name=".Activities.Specific.MoviesListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

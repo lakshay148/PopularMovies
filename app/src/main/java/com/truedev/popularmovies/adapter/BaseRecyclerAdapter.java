@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.truedev.popularmovies.R;
+import com.truedev.popularmovies.model.general.GeneralObject;
 
 import java.util.ArrayList;
 
@@ -27,14 +29,15 @@ public class BaseRecyclerAdapter extends RecyclerView.Adapter<BaseRecyclerAdapte
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.base_adapter,parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.base_adapter,null);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
+        Glide.with(mContext).load(((GeneralObject)mObjects.get(position)).getImagePath()).into(holder.ivMain);
+        holder.tvTitle.setText(((GeneralObject)mObjects.get(position)).getTitle());
     }
 
 

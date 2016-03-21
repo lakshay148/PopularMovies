@@ -17,10 +17,8 @@ import butterknife.ButterKnife;
  */
 public class BaseActivity extends AppCompatActivity {
 
-    @Bind(R.id.toolBar)
     protected Toolbar mToolbar;
 
-    @Bind(R.id.contentFrame)
     protected FrameLayout mContentFrame;
 
     @Override
@@ -28,7 +26,8 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState, persistentState);
         setContentView(R.layout.base_activity);
 
-        ButterKnife.bind(this);
+        mToolbar = (Toolbar) findViewById(R.id.toolBar);
+        mContentFrame = (FrameLayout) findViewById(R.id.contentFrame);
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

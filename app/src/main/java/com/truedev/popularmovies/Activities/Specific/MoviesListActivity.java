@@ -21,24 +21,26 @@ import butterknife.ButterKnife;
  */
 public class MoviesListActivity extends BaseActivity {
 
-    @Bind(R.id.rcvMovies)
-    RecyclerView rcvMovies;
+    private RecyclerView rcvMovies;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         getLayoutInflater().inflate(R.layout.movies_list, mContentFrame);
 
-        ButterKnife.bind(this);
+        rcvMovies = (RecyclerView) findViewById(R.id.rcvMovies);
+
 
         ArrayList<Object> objects = new ArrayList<>();
-        for(int i=0; i<5; i++){
+        for(int i=0; i<10; i++){
             GeneralObject object = new GeneralObject("https://relaunch-live.s3.amazonaws.com/cms/media/images/1200x800/14726.jpg","Virat");
             objects.add(object);
         }
 
         rcvMovies.setLayoutManager(new GridLayoutManager(this, 2));
+        rcvMovies.setHasFixedSize(true);
         BaseRecyclerAdapter adapter = new BaseRecyclerAdapter(this,objects);
         rcvMovies.setAdapter(adapter);
+
     }
 }
